@@ -16,9 +16,14 @@
   "author": "Diego Dulval <diegodulval@gmail.com> (https://diegodulval.github.io/)",
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
-    "eslint-config-airbnb-base": "^11.3.1",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3"
   }
 }
