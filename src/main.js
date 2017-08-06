@@ -1,6 +1,6 @@
 const _ = require('lodash')
 
-const msg = 'algoritmo para contagem do numero de caracter em uma msg'
+const msg = 'Função para contagem da quantidade de vezes que um caracter aparece em uma msg'
 
 function setCountSymbol(txt) {
   return _(txt)
