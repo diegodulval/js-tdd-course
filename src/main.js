@@ -1,23 +1,17 @@
-const msg = 'algoritmo para contagem do numero de caracter em uma msg';
-const arrayMsg = [...msg].filter(e => e !== ' ')
+const _ = require('lodash')
 
-const resultMsg = arrayMsg.map((symbol) => {
-  let number = 0
-  arrayMsg.forEach((s) => { if (s.includes(symbol)) (number += 1) })
-  return {
-    symbol,
-    qtd: number,
-  }
-})
+const msg = 'algoritmo para contagem do numero de caracter em uma msg'
 
-const resulOrder = resultMsg.sort((a, b) => b.qtd - a.qtd)
+function setCountSymbol(txt) {
+  return _(txt)
+    .chain([...txt])
+    .filter(e => e !== ' ')
+    .countBy()
+    .thru(l => _.zip(_.keys(l), _.values(l)))
+    .sort((a, b) => (a[1] > b[1] ? -1 : 1))
+    .map(a => ({ symbol: a[0], quantity: a[1] }))
+    .value()
+}
 
-const uniq = (a = [], param) => (
-  a.filter((item, pos, array) => (
-    array.map(mapItem => mapItem[param]).indexOf(item[param]) === pos),
-  )
-)
-
-const result = uniq(resulOrder, 'symbol')
-
-console.log(result)
+const resul = setCountSymbol(msg)
+console.log(resul)
