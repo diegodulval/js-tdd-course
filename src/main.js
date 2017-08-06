@@ -7,7 +7,7 @@ function setCountSymbol(txt) {
     .chain([...txt])
     .filter(e => e !== ' ')
     .countBy()
-    .thru(l => _.zip(_.keys(l), _.values(l)))
+    .thru(a => _.zip(_.keys(a), _.values(a)))
     .sort((a, b) => (a[1] > b[1] ? -1 : 1))
     .map(a => ({ symbol: a[0], quantity: a[1] }))
     .value()
