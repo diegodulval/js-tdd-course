@@ -46,7 +46,7 @@ export default class UserCrud extends Component {
     return (
       <div className="form">
         <div className="row">
-          <div className="col-12 col-md-12">
+          <div className="col-12 col-md-6">
             <div className="form-group">
               <label htmlFor="name">Nome</label>
               <input
@@ -59,7 +59,7 @@ export default class UserCrud extends Component {
               />
             </div>
           </div>
-          <div className="col-12 col-md-12">
+          <div className="col-12 col-md-6">
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input

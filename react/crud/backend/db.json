@@ -9,6 +9,11 @@
       "id": 2,
       "name": "Diego Dulval",
       "email": "dulval@aurora.com"
+    },
+    {
+      "name": "Christian",
+      "email": "rezende@aurora.com",
+      "id": 3
     }
   ]
 }
