@@ -23,7 +23,10 @@ export default class Calculator extends Component {
   }
 
   componentWillMount() {
-    document.addEventListener("keypress", this.keyPress);
+    document.addEventListener("keypress", this.keyPress, false);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("keypress", this.keyPress, false);
   }
 
   keyPress({ key }) {
