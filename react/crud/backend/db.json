@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Joao Pedro",
+      "email": "joao@aurora.com"
+    },
+    {
+      "id": 2,
+      "name": "Diego Dulval",
+      "email": "dulval@aurora.com"
+    }
+  ]
+}
