@@ -19,13 +19,50 @@ export default class Calculator extends Component {
     this.clearMemory = this.clearMemory.bind(this);
     this.setOperation = this.setOperation.bind(this);
     this.addDigit = this.addDigit.bind(this);
+    this.keyPress = this.keyPress.bind(this);
   }
+
+  componentWillMount() {
+    document.addEventListener("keypress", this.keyPress);
+  }
+
+  keyPress({ key }) {
+    if (/[0-9]/.test(key)) this.addDigit(key);
+    console.log(key);
+    if (key === "Enter") this.setOperation("=");
+    if (/[-+*\/]/.test(key)) this.setOperation(key);
+  }
+
   clearMemory() {
     this.setState({ ...initialState });
   }
 
   setOperation(operation) {
-    console.log(operation);
+    if (this.state.current === 0) {
+      this.setState({
+        current: 1,
+        operation,
+        clearDisplay: true
+      });
+    } else {
+      const equals = operation === "=";
+      const currentOperantion = this.state.operation;
+      const values = [...this.state.values];
+      try {
+        values[0] = eval(`${values[0]} ${currentOperantion} ${values[1]}`);
+      } catch (e) {
+        values[0] = this.state.values[0];
+      }
+      values[1] = 0;
+
+      this.setState({
+        displayValue: values[0],
+        operation: equals ? null : operation,
+        current: equals ? 0 : 1,
+        clearDisplay: !equals,
+        values
+      });
+    }
   }
 
   addDigit(n) {
